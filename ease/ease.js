@@ -23,12 +23,28 @@ if (Meteor.isClient) {
 
       if (physically > 6 || emotionally > 6){
           window.location = "ease.html#needhelp";
+          NotifyLog.insert({
+            physical: physically,
+            emotional: emotionally,
+            createdAt: new Date(),
+            owner: Meteor.userId()
+          });
       } else {
           window.location = "#practice";
       }
     }
   });
-
+  Template.distract.events({
+    'click .dimage': function(event){
+      event.preventDefault();
+      var usage = 'image';
+      UsageLog.insert({
+        usage: usage,
+        createdAt: new Date(),
+        owner: Meteor.userId()
+      });
+    }
+  });
 }
 
 if (Meteor.isServer) {
