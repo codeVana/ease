@@ -26,6 +26,9 @@ if (Meteor.isClient) {
       } else {
           window.location = "#practice";
       }
+
+      event.target.physical.value = 5;
+      event.target.emotional.value = 5;
     }
   });
 
