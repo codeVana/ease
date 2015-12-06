@@ -18,7 +18,7 @@ if (Meteor.isClient) {
         emotional: emotionally,
         createdAt: new Date(),            // current time
         owner: Meteor.userId(),           // _id of logged in user
-        //username: Meteor.user().username  // username of logged in user
+        username: Meteor.user().username  // username of logged in user
       });
 
       if (physically > 6 || emotionally > 6){
